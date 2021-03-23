@@ -32,4 +32,9 @@ public class TarefaController {
         return tarefaService.getTarefa(idTarefa);
     }
 
+    @DeleteMapping(value = "/{idTarefa}")
+    public ResponseEntity deletarTarefa(@PathVariable("idTarefa") Long idTarefa){
+        return tarefaService.deletarTarefa(idTarefa);
+    }
+
 }

@@ -4,6 +4,7 @@ import com.raphael.to_do_list.dtos.NovaTarefaDto;
 import com.raphael.to_do_list.models.TarefaModel;
 import com.raphael.to_do_list.repositories.TarefaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -37,5 +38,15 @@ public class TarefaService {
         }else{
             return ResponseEntity.noContent().build();
         }
+    }
+
+    public ResponseEntity deletarTarefa(Long idTarefa) {
+        try {
+            tarefaRepository.deleteById(idTarefa);
+            return ResponseEntity.ok().build();
+        }catch (EmptyResultDataAccessException e){
+            return ResponseEntity.noContent().build();
+        }
+
     }
 }
