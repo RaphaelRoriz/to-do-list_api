@@ -27,4 +27,9 @@ public class TarefaController {
         return tarefaService.listarTarefas();
     }
 
+    @GetMapping(value = "/{idTarefa}")
+    public ResponseEntity<TarefaModel> getTarefa(@PathVariable("idTarefa") Long idTarefa){
+        return tarefaService.getTarefa(idTarefa);
+    }
+
 }
