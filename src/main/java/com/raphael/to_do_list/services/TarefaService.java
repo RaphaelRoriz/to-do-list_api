@@ -22,7 +22,7 @@ public class TarefaService {
     public ResponseEntity<List<TarefaModel>> listarTarefas() {
         List<TarefaModel> tarefas = tarefaRepository.findAll();
         if(tarefas.isEmpty()){
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.noContent().build();
         }else{
             return ResponseEntity.ok().body(tarefas);
         }
