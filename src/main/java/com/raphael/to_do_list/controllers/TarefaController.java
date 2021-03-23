@@ -19,12 +19,12 @@ public class TarefaController {
     TarefaService tarefaService;
 
     @PostMapping(value = "/cadastrar")
-    public TarefaModel cadastrar(@Valid @RequestBody NovaTarefaDto tarefa){
+    public TarefaModel cadastrarTarefa(@Valid @RequestBody NovaTarefaDto tarefa){
         return tarefaService.cadastrarTarefa(tarefa);
     }
 
     @GetMapping()
-    public ResponseEntity<List<TarefaModel>> listar(){
+    public ResponseEntity<List<TarefaModel>> listarTarefas(){
         return tarefaService.listarTarefas();
     }
 
