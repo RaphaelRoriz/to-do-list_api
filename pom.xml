@@ -14,7 +14,7 @@
 	<name>to_do_list</name>
 	<description>To do list api using spring boot</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
