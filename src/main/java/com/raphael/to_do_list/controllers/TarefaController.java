@@ -1,6 +1,7 @@
 package com.raphael.to_do_list.controllers;
 
 import com.raphael.to_do_list.dtos.NovaTarefaDto;
+import com.raphael.to_do_list.dtos.TarefaUpdateDto;
 import com.raphael.to_do_list.models.TarefaModel;
 import com.raphael.to_do_list.services.TarefaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,12 @@ public class TarefaController {
     @DeleteMapping(value = "/{idTarefa}")
     public ResponseEntity deletarTarefa(@PathVariable("idTarefa") Long idTarefa){
         return tarefaService.deletarTarefa(idTarefa);
+    }
+
+    @PutMapping("/{idTarefa}")
+    public ResponseEntity atualizarTarefa(@RequestBody TarefaUpdateDto tarefa,
+                                          @PathVariable("idTarefa") Long idTarefa) {
+        return tarefaService.updateTarefa(tarefa,idTarefa);
     }
 
 }

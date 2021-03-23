@@ -1,6 +1,7 @@
 package com.raphael.to_do_list.services;
 
 import com.raphael.to_do_list.dtos.NovaTarefaDto;
+import com.raphael.to_do_list.dtos.TarefaUpdateDto;
 import com.raphael.to_do_list.models.TarefaModel;
 import com.raphael.to_do_list.repositories.TarefaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,6 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,5 +48,16 @@ public class TarefaService {
             return ResponseEntity.noContent().build();
         }
 
+    }
+
+    public ResponseEntity updateTarefa(TarefaUpdateDto tarefaDto, Long idTarefa) {
+        Optional<TarefaModel> tarefaOpt = tarefaRepository.findById(idTarefa);
+        if (tarefaOpt.isPresent()) {
+            tarefaOpt.get().atualizarTarefa(tarefaDto);
+            tarefaRepository.save(tarefaOpt.get());
+            return ResponseEntity.ok().build();
+        }else{
+            return ResponseEntity.noContent().build();
+        }
     }
 }
