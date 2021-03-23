@@ -4,12 +4,11 @@ import com.raphael.to_do_list.dtos.NovaTarefaDto;
 import com.raphael.to_do_list.models.TarefaModel;
 import com.raphael.to_do_list.services.TarefaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/tarefas")
@@ -21,6 +20,11 @@ public class TarefaController {
     @PostMapping(value = "/cadastrar")
     public TarefaModel cadastrar(@Valid @RequestBody NovaTarefaDto tarefa){
         return tarefaService.cadastrarTarefa(tarefa);
+    }
+
+    @GetMapping()
+    public ResponseEntity<List<TarefaModel>> listar(){
+        return tarefaService.listarTarefas();
     }
 
 }
