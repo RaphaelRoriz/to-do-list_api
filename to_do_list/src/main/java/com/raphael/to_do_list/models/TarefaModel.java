@@ -1,6 +1,7 @@
 package com.raphael.to_do_list.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.raphael.to_do_list.dtos.NovaTarefaDto;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -19,10 +20,19 @@ public class TarefaModel {
     @Column(name = "prazo")
     @Temporal(TemporalType.TIMESTAMP)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private Date PRAZO;
+    private Date prazo;
 
     @Column(name = "completa" )
     private boolean completa;
+
+    public TarefaModel(){
+    }
+
+    public TarefaModel(NovaTarefaDto tarefa){
+        this.descricao = tarefa.getDescricao();
+        this.prazo = tarefa.getPrazo();
+        this.completa = false;
+    }
 
     public long getId() {
         return id;
@@ -40,12 +50,12 @@ public class TarefaModel {
         this.descricao = descricao;
     }
 
-    public Date getPRAZO() {
-        return PRAZO;
+    public Date getPrazo() {
+        return prazo;
     }
 
-    public void setPRAZO(Date PRAZO) {
-        this.PRAZO = PRAZO;
+    public void setPrazo(Date prazo) {
+        this.prazo = prazo;
     }
 
     public boolean isCompleta() {
