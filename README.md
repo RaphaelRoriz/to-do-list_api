@@ -7,19 +7,20 @@ API simples que simula uma lista de coisas a fazer(to do list), desenvolvida uti
 ## Cadastrar nova tarefa
 
 `POST /tarefas`
+
   
-    {
-    	"descricao": "Fazer compras" ,
-	"prazo": "2021-05-17T15:00:00"
-    }
+  	{
+		"descricao": "Fazer compras" ,
+		"prazo": "2021-05-17T15:00:00"
+	}
     
   #### Novas tarefas são cadastradas como não completas
   
   ### Resposta
   
-    Status: 201 Created
+   Status: 201 Created
     
-    {
+   	{
      	"id": 1,
       	"descricao": "Fazer compras",
       	"prazo": "2021-05-17T15:00:00",
@@ -35,14 +36,14 @@ API simples que simula uma lista de coisas a fazer(to do list), desenvolvida uti
 
   Status: 200 OK
 
-  [
-  	{
-		"id": 1,
-		"descricao": "Fazer compras",
-		"prazo": "2021-05-17T15:00:00",
-		"completa": false
-	}
-  ]
+	[
+		{
+			"id": 1,
+			"descricao": "Fazer compras",
+			"prazo": "2021-05-17T15:00:00",
+			"completa": false
+		}
+	]
   
 ## Obter tarefa específica a partir do Id
 
@@ -52,7 +53,8 @@ API simples que simula uma lista de coisas a fazer(to do list), desenvolvida uti
   ### Respostas
   
   #### Tarefa existente  
-    Status: 200 OK
+  
+  Status: 200 OK
     
     {
     	"id": 1,
@@ -70,15 +72,16 @@ API simples que simula uma lista de coisas a fazer(to do list), desenvolvida uti
 `PUT /tarefas/id`
   
     {
-	"descricao": "update" ,
-	"prazo": "2022-05-17T18:00:00",
-	"completa" : "true"
+		"descricao": "update" ,
+		"prazo": "2022-05-17T18:00:00",
+		"completa" : "true"
     }
     
   ### Respostas
   
    #### Tarefa existente  
-    Status: 200 OK
+   
+   Status: 200 OK
     
     {
     	"id": 1,
@@ -88,7 +91,7 @@ API simples que simula uma lista de coisas a fazer(to do list), desenvolvida uti
     }
     
    #### Tarefa não existente
-    Status: 404 Not Found
+   Status: 404 Not Found
 
 
 ## Deletar tarefa
@@ -98,9 +101,9 @@ API simples que simula uma lista de coisas a fazer(to do list), desenvolvida uti
   ### Respostas
   
    #### Tarefa existente  
-    Status: 204 No Content
+   Status: 204 No Content
     
    #### Tarefa não existente
-    Status: 404 Not Found
+   Status: 404 Not Found
 
 
