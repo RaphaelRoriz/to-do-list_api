@@ -55,7 +55,7 @@ public class TarefaService {
             tarefaRepository.save(tarefaOpt.get());
             return ResponseEntity.ok().build();
         }else{
-            return ResponseEntity.noContent().build();
+            return ResponseEntity.notFound().build();
         }
     }
 }
