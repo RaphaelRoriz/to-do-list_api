@@ -32,7 +32,7 @@ public class TarefaService {
         if (tarefa.isPresent()){
             return ResponseEntity.ok().body(tarefa.get());
         }else{
-            return ResponseEntity.noContent().build();
+            return ResponseEntity.notFound().build();
         }
     }
 
