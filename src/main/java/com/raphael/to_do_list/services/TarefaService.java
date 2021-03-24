@@ -9,6 +9,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,8 +19,9 @@ public class TarefaService {
     @Autowired
     TarefaRepository tarefaRepository;
 
-    public TarefaModel cadastrarTarefa(NovaTarefaDto tarefa) {
-        return tarefaRepository.save(new TarefaModel(tarefa));
+    public ResponseEntity<TarefaModel> cadastrarTarefa(NovaTarefaDto tarefa) {
+        TarefaModel tarefaCriada = tarefaRepository.save(new TarefaModel(tarefa));
+        return ResponseEntity.created(URI.create("/tarefas/"+tarefaCriada.getId())).body(tarefaCriada);
     }
 
     public ResponseEntity<List<TarefaModel>> listarTarefas() {

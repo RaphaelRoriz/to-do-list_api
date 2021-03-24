@@ -19,7 +19,7 @@ public class TarefaController {
     TarefaService tarefaService;
 
     @PostMapping(value = "/cadastrar")
-    public TarefaModel cadastrarTarefa(@Valid @RequestBody NovaTarefaDto tarefa){
+    public ResponseEntity<TarefaModel> cadastrarTarefa(@Valid @RequestBody NovaTarefaDto tarefa){
         return tarefaService.cadastrarTarefa(tarefa);
     }
 
