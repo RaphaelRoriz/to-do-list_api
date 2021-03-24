@@ -9,8 +9,8 @@ API simples que simula uma lista de coisas a fazer(to do list), desenvolvida uti
 `POST /tarefas`
   
     {
-	    "descricao": "Fazer compras" ,
-	    "prazo": "2021-05-17T15:00:00"
+    	"descricao": "Fazer compras" ,
+	"prazo": "2021-05-17T15:00:00"
     }
     
   #### Novas tarefas são cadastradas como não completas
@@ -20,10 +20,10 @@ API simples que simula uma lista de coisas a fazer(to do list), desenvolvida uti
     Status: 201 Created
     
     {
-      "id": 1,
-      "descricao": "Fazer compras",
-      "prazo": "2021-05-17T15:00:00",
-      "completa": false
+     	"id": 1,
+      	"descricao": "Fazer compras",
+      	"prazo": "2021-05-17T15:00:00",
+      	"completa": false
     }
 
 
@@ -35,7 +35,14 @@ API simples que simula uma lista de coisas a fazer(to do list), desenvolvida uti
 
   Status: 200 OK
 
-  []
+  [
+  	{
+		"id": 1,
+		"descricao": "Fazer compras",
+		"prazo": "2021-05-17T15:00:00",
+		"completa": false
+	}
+  ]
   
 ## Obter tarefa específica a partir do Id
 
@@ -48,10 +55,10 @@ API simples que simula uma lista de coisas a fazer(to do list), desenvolvida uti
     Status: 200 OK
     
     {
-      "id": 1,
-      "descricao": "Fazer compras",
-      "prazo": "2021-05-17T15:00:00",
-      "completa": false
+    	"id": 1,
+      	"descricao": "Fazer compras",
+      	"prazo": "2021-05-17T15:00:00",
+      	"completa": false
     }
     
    #### Tarefa não existente
@@ -63,9 +70,9 @@ API simples que simula uma lista de coisas a fazer(to do list), desenvolvida uti
 `PUT /tarefas/id`
   
     {
-	    "descricao": "update" ,
-	    "prazo": "2022-05-17T18:00:00",
-	    "completa" : "true"
+	"descricao": "update" ,
+	"prazo": "2022-05-17T18:00:00",
+	"completa" : "true"
     }
     
   ### Respostas
@@ -74,10 +81,10 @@ API simples que simula uma lista de coisas a fazer(to do list), desenvolvida uti
     Status: 200 OK
     
     {
-      "id": 1,
-      "descricao": "update",
-      "prazo": "2021-05-17T15:00:00",
-      "completa": true
+    	"id": 1,
+      	"descricao": "update",
+      	"prazo": "2021-05-17T15:00:00",
+      	"completa": true
     }
     
    #### Tarefa não existente
