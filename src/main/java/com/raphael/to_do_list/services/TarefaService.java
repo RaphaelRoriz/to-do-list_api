@@ -24,11 +24,7 @@ public class TarefaService {
 
     public ResponseEntity<List<TarefaModel>> listarTarefas() {
         List<TarefaModel> tarefas = tarefaRepository.findAll();
-        if(tarefas.isEmpty()){
-            return ResponseEntity.noContent().build();
-        }else{
-            return ResponseEntity.ok().body(tarefas);
-        }
+        return ResponseEntity.ok().body(tarefas);
     }
 
     public ResponseEntity<TarefaModel> getTarefa(Long idTarefa) {
