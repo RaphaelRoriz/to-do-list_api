@@ -2,6 +2,7 @@ package com.raphael.to_do_list.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.raphael.to_do_list.dtos.NovaTarefaDto;
+import com.raphael.to_do_list.dtos.TarefaUpdateDto;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -64,5 +65,11 @@ public class TarefaModel {
 
     public void setCompleta(boolean completa) {
         this.completa = completa;
+    }
+
+    public void atualizarTarefa(TarefaUpdateDto tarefaDto) {
+        this.setDescricao(tarefaDto.getDescricao());
+        this.setPrazo(tarefaDto.getPrazo());
+        this.setCompleta(tarefaDto.isCompleta());
     }
 }
